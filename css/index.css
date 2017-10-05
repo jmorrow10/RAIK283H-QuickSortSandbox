@@ -1,0 +1,47 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+table {
+	border-collapse: collapse;
+	table-layout: fixed;
+	font-size: 3px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	vertical-align: top;
+}
+.displaySort tr {
+	height: 7px;
+	font-weight: bold;
+}
+.sortedLabel {
+	font-size: 12pt;
+	text-align:center;
+	font-weight:bold;
+}
+.padder {
+	width: 5px;
+	background: #000;
+}
+body {
+	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+	font-size: 10pt;
+}
+button {
+	background: #efefef;
+	border: 2px solid #ccc;
+}
+#intermediateArray {
+	font-size: 10pt;
+}
+#navigationButtons{
+	text-align:center;
+	display:inline-block;
+	width:100%;
+}
+#displayingLabel{
+	font-size:20pt;
+	text-align:center;
+	font-weight: bold;
+	padding-bottom: 16px;
+}

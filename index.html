@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/index.css">
+<script src="js/jquery.min.js"></script>
+<script src="js/sorter.js"></script>
+<script src="js/index.js"></script>
+<title>QuickSort Sandbox</title>
+</head>
+
+<body>
+<h1>QuickSort Sandbox</h1>
+In what order would you like the array to begin? 
+<select id="arrayType">
+  <option value="Random" selected>Random</option>
+  <option value="Increasing">Increasing</option>
+  <option value="Decreasing">Decreasing</option>
+  <option value="AlmostSorted">Almost Sorted</option>
+</select><br/>
+
+Which pivot-choosing scheme would you like to use?
+<select id="pivotType">
+  <option value="Left" selected>Left-Most Element</option>
+  <option value="Right">Right-Most Element</option>
+  <option value="Random">Random Element</option>
+  <option value="Midpoint">Midpoint</option>
+  <option value="Midpoint">Median Of Three Elements</option>
+</select><br/>
+<button id="displayChoice">Display</button>
+
+<div id="displaySort">
+<table>
+  <tr>
+  	<td colspan="5" id="displayingLabel">Now Displaying....</td>
+  </tr>
+  <tr>
+    <td class="sortedLabel">UNSORTED</td>
+    <td class="padder"></td>
+    <td class="sortedLabel">INTERMEDIATE STEPS</td>
+    <td class="padder"></td>
+    <td class="sortedLabel">SORTED</td>
+  </tr>
+  <tr>
+    <td id="unsortedArray"></td>
+    <td class="padder"></td>
+    <td id="intermediateArray">
+      <div id="sortResults"></div>
+      <div id="navigationButtons">
+        <button type="button" id="prevButton">Prev. Step</button>
+        Step <span id="stepNumber">%</span> of <span id="totalSteps">%</span>
+        <button type="button" id="nextButton">Next Step</button></td>
+      </div>
+	</td>
+    <td class="padder"></td>
+    <td id="sortedArray"></td>
+  </tr>
+</table>
+</div>
+</body>
+</html>
