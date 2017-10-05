@@ -1,4 +1,3 @@
-num_recurses = 0;
 /*
  * Returns a random integer between min (inclusive) and max (exclusive)
  */
@@ -7,7 +6,9 @@ function getRandomInt(min, max) {
 	return Math.floor(Math.random() * (max - min) + min);
 }
 
-
+/*
+ * This function shuffles an array into a random order.
+ */
 function shuffle(a) {
 	for (let i = a.length; i; i--) {
 		let j = Math.floor(Math.random() * i);
@@ -95,44 +96,50 @@ function getMedianOfThreePivot(left,right){
 	// TODO
 }
 
-
-function swap(array, left, right) {
-	let temp = array[left];
-	array[left] = array[right];
-	array[right] = temp;
+/*
+ * This function swaps elements at indices i and j in the provided array.
+ */
+function swap(array, i, j) {
+	let temp = array[i];
+	array[i] = array[j];
+	array[j] = temp;
 }
 
-// quicksort algorithm
 function quicksort(pivotFunction, array, left, right) {
 	left = left || 0;
 	right = right || array.length - 1;
 
-	var pivot = partition(pivotFunction, array, left, right); // you can play with both partition
+	var pivot = partition(pivotFunction, array, left, right);
+	
 	displayProgress(array, left, right, pivot)
+	
 	if (left < pivot - 1) {
 		quicksort(pivotFunction, array, left, pivot - 1);
 	}
+	
 	if (right > pivot) {
 		quicksort(pivotFunction, array, pivot, right);
 	}
+	
 	return array;
 }
 
-// partition scheme, similar to Hoare's partition scheme, but allows for the pivot to be anywhere
 function partition(pivotFunction, array, left, right) {
-	let originalLeft = left;
 	let pivot = pivotFunction(left,right);
 	let pivotValue = array[pivot];
 	
 	swap(array,pivot,left);
 
 	while (left <= right) {
+		
 		while (array[left] < pivotValue) {
 			left++;
 		}
+		
 		while (array[right] > pivotValue) {
 			right--;
 		}
+		
 		if (left <= right) {
 			swap(array, left, right);
 			left++;

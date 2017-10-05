@@ -83,6 +83,11 @@ function displayProgress(arr,startIndex,endIndex,pivotIndex) {
 	$parentDiv.append($displayTable);
 }
 
+/*
+ * This function handles the transitions between incremental sorting
+ * steps using the next and prev buttons. Increment is 1 for next
+ * and -1 for prev.
+ */
 function displayNextStep(increment){
 	if((displaying === $("#sortResults").children().length-1 && increment>0)
 		|| (displaying === 0 && increment<0)){
@@ -95,6 +100,10 @@ function displayNextStep(increment){
 	$("#stepNumber").html(displaying+1);
 }
 
+/*
+ * This function takes care of everything involved in creating an array,
+ * sorting it, and updating all appropriate visualizations.
+ */
 function displayForNewChoice(){
 	let numElements = 40;
 	
