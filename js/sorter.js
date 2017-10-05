@@ -17,16 +17,8 @@ function shuffle(a) {
 }
 
 /*
- * This function generates an array of random integers of length n.
- */
-function generateRandomArray(n) {
-	a = [...Array(n + 1).keys()].slice(1, n + 1);
-	shuffle(a);
-	return a;
-}
-
-/*
- * This function generates an array of increasing integers of length n.
+ * This function generates an array of increasing integers of length n,
+ * with values from 1 to n.
  */
 function generateIncreasingArray(n) {
 	a = [...Array(n + 1).keys()].slice(1, n + 1);
@@ -37,8 +29,18 @@ function generateIncreasingArray(n) {
  * This function generates an array of increasing integers of length n.
  */
 function generateDecreasingArray(n) {
-	a = [...Array(n + 1).keys()].slice(1, n + 1);
+	a = generateIncreasingArray(n);
 	a.reverse();
+	return a;
+}
+
+
+/*
+ * This function generates an array of random integers of length n.
+ */
+function generateRandomArray(n) {
+	a = generateIncreasingArray(n);
+	shuffle(a);
 	return a;
 }
 
@@ -47,7 +49,7 @@ function generateDecreasingArray(n) {
  * There are about log(n) pairs that are swapped out of order.
  */
 function generateAlmostSortedArray(n) {
-	a = [...Array(n + 1).keys()].slice(1, n + 1);
+	a = generateIncreasingArray(n);
 
 	for(let i=0;i<Math.log(a.length);i++){
 		index = getRandomInt(0,n-1);
@@ -69,14 +71,14 @@ function getLeftPivot(left,right){
  * right.
  */
 function getRightPivot(left,right){
-	// TODO
+	// TODO: Function logic left as an exercise.
 }
 
 /*
  * This function returns a random index between left and right.
  */
 function getRandomPivot(left,right){
-	// TODO
+	// TODO: Function logic left as an exercise.
 }
 
 /*
@@ -84,7 +86,8 @@ function getRandomPivot(left,right){
  * right.
  */
 function getMidpointPivot(left,right){
-	// TODO (hint: there is a function in this file to help you)
+	// TODO: Function logic left as an exercise.
+	// (hint: there is a function in this file to help)
 }
 
 /* 
@@ -93,7 +96,7 @@ function getMidpointPivot(left,right){
  * of them, and then returns the index of that median. 
  */
 function getMedianOfThreePivot(left,right){
-	// TODO
+	// TODO: Function logic left as an exercise.
 }
 
 /*
@@ -105,6 +108,9 @@ function swap(array, i, j) {
 	array[j] = temp;
 }
 
+/*
+ * Commenting this function is left as an exercise.
+ */
 function quicksort(pivotFunction, array, left, right) {
 	left = left || 0;
 	right = right || array.length - 1;
@@ -124,6 +130,9 @@ function quicksort(pivotFunction, array, left, right) {
 	return array;
 }
 
+/*
+ * Commenting this function is left as an exercise.
+ */
 function partition(pivotFunction, array, left, right) {
 	let pivot = pivotFunction(left,right);
 	let pivotValue = array[pivot];
