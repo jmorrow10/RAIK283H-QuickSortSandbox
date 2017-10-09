@@ -51,9 +51,9 @@ function generateRandomArray(n) {
 function generateAlmostSortedArray(n) {
 	a = generateIncreasingArray(n);
 
-	for(let i=0;i<Math.log(a.length);i++){
-		index = getRandomInt(0,n-1);
-		swap(a,index,index+1);
+	for (let i = 0; i < Math.log(a.length); i++) {
+		index = getRandomInt(0, n - 1);
+		swap(a, index, index + 1);
 	}
 	return a;
 }
@@ -62,7 +62,7 @@ function generateAlmostSortedArray(n) {
  * This function returns the left-most index between left and
  * right.
  */
-function getLeftPivot(left,right){
+function getLeftPivot(array, left, right) {
 	return left;
 }
 
@@ -70,14 +70,14 @@ function getLeftPivot(left,right){
  * This function returns the right-most index between left and
  * right.
  */
-function getRightPivot(left,right){
+function getRightPivot(array, left, right) {
 	// TODO: Function logic left as an exercise.
 }
 
 /*
  * This function returns a random index between left and right.
  */
-function getRandomPivot(left,right){
+function getRandomPivot(array, left, right) {
 	// TODO: Function logic left as an exercise.
 }
 
@@ -85,7 +85,7 @@ function getRandomPivot(left,right){
  * This function returns the integer midpoint between left and 
  * right.
  */
-function getMidpointPivot(left,right){
+function getMidpointPivot(array, left, right) {
 	// TODO: Function logic left as an exercise.
 	// (hint: there is a function in this file to help)
 }
@@ -95,7 +95,7 @@ function getMidpointPivot(left,right){
  * right-most element, and the center element, and finds the median 
  * of them, and then returns the index of that median. 
  */
-function getMedianOfThreePivot(left,right){
+function getMedianOfThreePivot(array, left, right) {
 	// TODO: Function logic left as an exercise.
 }
 
@@ -116,17 +116,17 @@ function quicksort(pivotFunction, array, left, right) {
 	right = right || array.length - 1;
 
 	var pivot = partition(pivotFunction, array, left, right);
-	
+
 	displayProgress(array, left, right, pivot)
-	
-	if (left < pivot - 1) {
-		quicksort(pivotFunction, array, left, pivot - 1);
+
+	if (left < pivot - 2) {
+		quicksort(pivotFunction, array, left, pivot - 2);
 	}
-	
+
 	if (right > pivot) {
 		quicksort(pivotFunction, array, pivot, right);
 	}
-	
+
 	return array;
 }
 
@@ -134,27 +134,31 @@ function quicksort(pivotFunction, array, left, right) {
  * Commenting this function is left as an exercise.
  */
 function partition(pivotFunction, array, left, right) {
-	let pivot = pivotFunction(left,right);
+	let originalLeft = left;
+	let pivot = pivotFunction(array, originalLeft, right);
 	let pivotValue = array[pivot];
-	
-	swap(array,pivot,left);
+
+	swap(array, pivot, originalLeft);
+	left++;
 
 	while (left <= right) {
-		
+
 		while (array[left] < pivotValue) {
 			left++;
 		}
-		
+
 		while (array[right] > pivotValue) {
 			right--;
 		}
-		
+
 		if (left <= right) {
 			swap(array, left, right);
 			left++;
 			right--;
 		}
 	}
-	
+
+	swap(array, originalLeft, left - 1);
+
 	return left;
 }

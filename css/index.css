@@ -16,8 +16,8 @@ table {
 }
 .sortedLabel {
 	font-size: 12pt;
-	text-align:center;
-	font-weight:bold;
+	text-align: center;
+	font-weight: bold;
 }
 .padder {
 	width: 5px;
@@ -34,14 +34,14 @@ button {
 #intermediateArray {
 	font-size: 10pt;
 }
-#navigationButtons{
-	text-align:center;
-	display:inline-block;
-	width:100%;
+#navigationButtons {
+	text-align: center;
+	display: inline-block;
+	width: 100%;
 }
-#displayingLabel{
-	font-size:20pt;
-	text-align:center;
+#displayingLabel {
+	font-size: 20pt;
+	text-align: center;
 	font-weight: bold;
 	padding-bottom: 16px;
 }
