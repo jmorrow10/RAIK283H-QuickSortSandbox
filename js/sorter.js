@@ -79,6 +79,7 @@ function getRightPivot(array, left, right) {
  */
 function getRandomPivot(array, left, right) {
 	// TODO: Function logic left as an exercise.
+	// (hint: there is a function in this file to help)
 }
 
 /*
@@ -87,7 +88,6 @@ function getRandomPivot(array, left, right) {
  */
 function getMidpointPivot(array, left, right) {
 	// TODO: Function logic left as an exercise.
-	// (hint: there is a function in this file to help)
 }
 
 /* 
