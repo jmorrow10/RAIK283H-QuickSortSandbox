@@ -71,6 +71,7 @@ function getLeftPivot(array, left, right) {
  * right.
  */
 function getRightPivot(array, left, right) {
+	return right;
 	// TODO: Function logic left as an exercise.
 }
 
@@ -80,6 +81,7 @@ function getRightPivot(array, left, right) {
 function getRandomPivot(array, left, right) {
 	// TODO: Function logic left as an exercise.
 	// (hint: there is a function in this file to help)
+	return getRandomInt(left, right)
 }
 
 /*
@@ -87,6 +89,7 @@ function getRandomPivot(array, left, right) {
  * right.
  */
 function getMidpointPivot(array, left, right) {
+	return (Math.floor((left + right)/2))
 	// TODO: Function logic left as an exercise.
 }
 
@@ -97,6 +100,18 @@ function getMidpointPivot(array, left, right) {
  */
 function getMedianOfThreePivot(array, left, right) {
 	// TODO: Function logic left as an exercise.
+	leftPivot = getLeftPivot(array, left, right);
+	rightPivot = getRightPivot(array, left, right);
+	centerPivot = getMidpointPivot(array, left, right);
+
+	if(((array[leftPivot] < array[rightPivot])&&(array[leftPivot] > array[centerPivot]))||((array[leftPivot] > array[rightPivot])&&(array[leftPivot] < array[centerPivot]))){
+		return leftPivot;
+	} else if (((array[rightPivot] < array[leftPivot])&&(array[rightPivot] > array[centerPivot]))||((array[rightPivot] > array[leftPivot])&&(array[rightPivot] < array[centerPivot]))){
+		return rightPivot;
+	} else {
+		return centerPivot;
+	}
+
 }
 
 /*
@@ -109,7 +124,8 @@ function swap(array, i, j) {
 }
 
 /*
- * Commenting this function is left as an exercise.
+ * this function acts as the main quicksort controller
+ * it utilizes the partition method and uses itself recursivly
  */
 function quicksort(pivotFunction, array, left, right) {
 	left = left || 0;
@@ -131,7 +147,7 @@ function quicksort(pivotFunction, array, left, right) {
 }
 
 /*
- * Commenting this function is left as an exercise.
+ * executes the lomuto method to partition the array
  */
 function partition(pivotFunction, array, left, right) {
 	let originalLeft = left;
